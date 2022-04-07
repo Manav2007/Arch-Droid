@@ -63,12 +63,12 @@ If you are an Advanced user and you have used Arch Linux, then you are good to g
 |    Lumia 520    |      fame_lta        |     RM-915     |
 
 - Device Specs:
-|   Basic   | Specs|
-| --------------- | ---------------  |
-|    CPU    |   1.0GHz Dual-Core Qualcomm MSM8227   |
-|   GPU   |  Adreno 305  |
-|   Memory|  512MB (0.5 GB) |
-| Stock OS | Windows Phone 8.0/8.1 |
+|   Basic            |      Specs                            |
+| ---------------  | ---------------  |
+|    CPU             |   1.0GHz Dual-Core Qualcomm MSM8227   |
+|   GPU              |  Adreno 305                           |
+|   Memory           |  512MB (0.5 GB)                       |
+| Stock OS           | Windows Phone 8.0/8.1                 |
 | Storage| 8GB|
 |  Battery|  1430 mAh BL-5J|
 |  Touch | Synaptics |
