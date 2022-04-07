@@ -79,6 +79,7 @@ run the command below:
 ```
 mkdir Arch-Droid/Sources/Fame/3.4 && cd Arch-Droid/Sources/Fame/3.4
 git clone https://github.com/Manav2007/Arch-Droid.git
+```
 
 #### Credits
 
