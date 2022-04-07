@@ -56,11 +56,24 @@ If you are an Advanced user and you have used Arch Linux, then you are good to g
 
 - This Branch is for the Nokia Lumia 520 fame:
 
-|   Device Name   | Device Code Name |  Device Model   |
+|   Device Name   | Device CodeName |  Device Model   |
 | --------------- | ---------------  | --------------- |
 |    Lumia 520    |      fame_cmmc        |     RM-913     |
 |    Lumia 520    |      fame_row        |     RM-914     |
 |    Lumia 520    |      fame_lta        |     RM-915     |
+
+- Device Specs:
+|   Basic   | Specs|
+| --------------- | ---------------  |
+|    CPU    |   1.0GHz Dual-Core Qualcomm MSM8227   |
+|   GPU   |  Adreno 305  |
+|   Memory|  512MB (0.5 GB) |
+| Stock OS | Windows Phone 8.0/8.1 |
+| Storage| 8GB|
+|  Battery|  1430 mAh BL-5J|
+|  Touch | Synaptics |
+| Display Resolution| 4.0" 800 x 480 px (Orise-Based)|
+| Camera| 5MPx SMIA75 |
 #### Credits
 
 - Manav Harsana (Me)
