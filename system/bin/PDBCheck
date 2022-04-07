@@ -1,0 +1,125 @@
+#!/system/bin/sh
+#PROJECT DARK BOOSTER - ABS Tweaks
+#Version - 5.0
+#Devoloped by dark_optimistic @XDA
+#Copyright (C)2015 dark_optimistic
+#==============================================================#
+#========================= Licenses ===========================#
+#==============================================================#
+#  This program is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#  GNU General Public License for more details.
+#  You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#==============================================================#
+#======================= Important Note =======================#
+#==============================================================#
+#If you want to use my mod in your ROM than you don't need to take permission from me. All you need to is just give ME ( dark_optimistic @XDA) proper CREDITS.
+#
+#If you want to share my mod on your blog/website/Fb page or any other place than please do not reupload it. Simply give original Android File Host Download link provided on my XDA Thread. 
+#
+#Do not try to Rename or Modify ABS Tweaks. If I found you doing this than ready to face consequences. I will report you wherever you are.
+#
+#For more info check out my website - <http://www.techflue.com/>  & also see Licenses given below.
+#==============================================================#
+
+mount -o remount,rw /
+mount -o remount,rw rootfs
+mount -o remount,rw /system
+busybox mount -o remount,rw /
+busybox mount -o remount,rw rootfs
+busybox mount -o remount,rw /system
+
+divider1="\e[0;100m====================================================\e[00;37;40m" # Black
+divider2="\e[0;101m====================================================\e[00;37;40m" # Red
+divider3="\e[0;102m====================================================\e[00;37;40m" # Green
+divider4="\e[0;103m====================================================\e[00;37;40m" # Yellow
+divider5="\e[0;104m====================================================\e[00;37;40m" # Blue
+divider6="\e[0;105m====================================================\e[00;37;40m" # Purple
+divider7="\e[0;106m====================================================\e[00;37;40m" # Cyan
+divider8="\e[0;107m====================================================\e[00;37;40m" # White
+
+busybox clear
+busybox clear
+busybox echo -e $divider2
+echo -e "\e[01;33m###############  OXYGEN OF ANDROID  ################\e[00;37;40m"
+echo -e "\e[01;44m####################################################\e[00;37;40m"
+echo -e "\e[01;32m###########          ABS TWEAKS          ###########\e[00;37;40m"
+echo -e "\e[01;32m##########        Version:-  V5.0         ##########\e[00;37;40m"
+echo -e "\e[01;44m####################################################\e[00;37;40m"
+echo -e "\e[01;33m######  Developed By : dark_optimistic @XDA  #######\e[00;37;40m"
+busybox echo -e $divider2
+busybox echo""
+busybox echo""
+busybox echo -e "\e[01;32m                    PDB Checker                     \e[00;37;40m" 
+busybox echo""
+busybox echo""
+busybox echo -e $divider2
+
+
+busybox sleep 2
+busybox echo ""
+busybox echo "Checking The Whole Tweak!"
+busybox sleep 2
+busybox echo ""
+busybox echo "Checking init.d Files!"
+busybox sleep 1
+if [ -e /system/etc/init.d ]; then
+	busybox echo ""
+	busybox echo "Yes! You Have init.d Support"
+	busybox sleep 1
+else
+	busybox echo ""
+	busybox echo "You Have Not init.d Support!"
+	busybox sleep 1
+fi
+
+busybox echo ""
+busybox echo "Checking ABS Tweaks Base Folder"
+busybox sleep 1
+if [ -e /system/etc/PDB-ABS ]; then
+	busybox echo ""
+	busybox echo "ABS Tweaks Base Folder Available"
+	busybox sleep 1
+else
+	busybox echo ""
+	busybox echo "Can't Find ABS Tweaks Base Folder! Please Reflash ABS Tweaks!"
+	busybox sleep 1
+fi
+
+busybox echo ""
+busybox echo "Retriving Other Files"
+busybox sleep 1
+busybox echo ""
+busybox echo "Finding PDB Zone"
+busybox sleep 1
+if [ -e /system/bin/PDBZone ]; then
+	busybox echo ""
+	busybox echo "PDBZone Is Available!"
+	busybox sleep 1
+else
+	busybox echo ""
+	busybox echo "Can't Find PDB Zone! Please Reflash ABS Tweaks!"
+	busybox sleep 1
+fi
+
+busybox echo ""
+busybox echo "Checking Fstrim Binary Files"
+busybox sleep 1
+if [ -e /system/bin/fstrim ]; then
+	busybox echo ""
+	busybox echo "Fstrim Binary Is Installed"
+	busybox sleep 1
+else
+	busybox echo ""
+	busybox echo "Can't Find Fstrim Binary! Please Reflash ABS Tweaks"
+	busybox sleep 1
+fi
+
+busybox echo ""
+busybox echo "Checking Is Done!!"
+busybox sleep 5
+exit 0
