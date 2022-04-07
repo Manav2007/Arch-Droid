@@ -54,11 +54,13 @@ If you are an Advanced user and you have used Arch Linux, then you are good to g
 
 ### Device Info:
 
-- This Branch is for the Nokia Lumia 525 Glee:
+- This Branch is for the Nokia Lumia 520 fame:
 
 |   Device Name   | Device Code Name |  Device Model   |
 | --------------- | ---------------  | --------------- |
-|    Lumia 525    |      Glee        |     RM-998      |
+|    Lumia 520    |      fame_cmmc        |     RM-913     |
+|    Lumia 520    |      fame_row        |     RM-914     |
+|    Lumia 520    |      fame_lta        |     RM-915     |
 #### Credits
 
 - Manav Harsana (Me)
