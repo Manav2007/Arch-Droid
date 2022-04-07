@@ -66,7 +66,7 @@ If you are an Advanced user and you have used Arch Linux, then you are good to g
 | ---------------  | ---------------  |
 |    CPU             |   1.0GHz Dual-Core Qualcomm MSM8227   |
 |   GPU              |  Adreno 305                           |
-|   Memory           |  512MB (0.5 GB) Ram                   |
+|   Memory           |  1024MB (1 GB) Ram                   |
 | Stock OS           | Windows Phone 8.0/8.1                 |
 | Storage | 8GB |
 |  Battery |  1430 mAh BL-5J |
