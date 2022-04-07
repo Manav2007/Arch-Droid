@@ -54,11 +54,36 @@ If you are an Advanced user and you have used Arch Linux, then you are good to g
 
 ### Device Info:
 
-- This Branch is for the Nokia Lumia 525 Glee:
+- This Branch is for the Nokia Lumia 525 glee:
 
-|   Device Name   | Device Code Name |  Device Model   |
+|   Device Name   | Device CodeName |  Device Model   |
 | --------------- | ---------------  | --------------- |
-|    Lumia 525    |      Glee        |     RM-998      |
+|    Lumia 525    |    glee_row       |     RM-998     |
+
+- Device Specs:
+
+|   Basic            |      Specs                            |
+| ---------------  | ---------------  |
+|    CPU             |   1.0GHz Dual-Core Qualcomm MSM8227   |
+|   GPU              |  Adreno 305                           |
+|   Memory           |  512MB (0.5 GB) Ram                   |
+| Stock OS           | Windows Phone 8.0/8.1                 |
+| Storage | 8GB |
+|  Battery |  1430 mAh BL-5J |
+|  Touch | Synaptics |
+| Display Resolution | 4.0" 800 x 480 px (Orise-Based)|
+| Camera | 5MPx SMIA75 |
+
+### Rom-Info
+|    Basic   | Info  |
+| --------------- | ---------------  |
+| Arch Droid Version| 3.4.A |
+| Android Version | 4.4.4 |
+|    Build Type   |      Official        |
+|     Current Build Status    |      Early-Alpha        |
+| ROM Status | Continued |
+| Author | Manav Harsana (Ragedpixel) |
+
 
 ### How to Download Source Codes?
 
