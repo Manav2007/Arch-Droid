@@ -56,11 +56,11 @@ If you are an Advanced user and you have used Arch Linux, then you are good to g
 
 - This Branch is for the Nokia Lumia 525 Glee:
 
-|   Device Name   | Device Code Name|  Device Model   |
+|   Device Name   | Device Code Name |  Device Model   |
 
-| --------------- | --------------- | --------------- |
+| --------------- | ---------------  | --------------- |
 
-|    Lumia 525    |      Glee       |     RM-998      |
+|    Lumia 525    |      Glee        |     RM-998      |
 
 
 #### Credits
