@@ -1,0 +1,205 @@
+#!/system/bin/sh
+#PROJECT DARK BOOSTER - ABS Tweaks
+#Version - 5.0
+#Devoloped by Paget96 @XDA
+#Copyright (C)2015 dark_optimistic & Paget96
+#==============================================================#
+#========================= Licenses ===========================#
+#==============================================================#
+#  This program is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#  GNU General Public License for more details.
+#  You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#==============================================================#
+#======================= Important Note =======================#
+#==============================================================#
+#If you want to use my mod in your ROM than you don't need to take permission from me. All you need to is just give ME ( dark_optimistic @XDA) proper CREDITS.
+#
+#If you want to share my mod on your blog/website/Fb page or any other place than please do not reupload it. Simply give original Android File Host Download link provided on my XDA Thread. 
+#
+#Do not try to Rename or Modify ABS Tweaks. If I found you doing this than ready to face consequences. I will report you wherever you are.
+#
+#For more info check out my website - <http://www.techflue.com/>  & also see Licenses given below.
+#==============================================================#
+
+mount -o remount,rw /
+mount -o remount,rw rootfs
+mount -o remount,rw /system
+busybox mount -o remount,rw /
+busybox mount -o remount,rw rootfs
+busybox mount -o remount,rw /system
+
+divider1="\e[0;100m====================================================\e[00;37;40m" # Black
+divider2="\e[0;101m====================================================\e[00;37;40m" # Red
+divider3="\e[0;102m====================================================\e[00;37;40m" # Green
+divider4="\e[0;103m====================================================\e[00;37;40m" # Yellow
+divider5="\e[0;104m====================================================\e[00;37;40m" # Blue
+divider6="\e[0;105m====================================================\e[00;37;40m" # Purple
+divider7="\e[0;106m====================================================\e[00;37;40m" # Cyan
+divider8="\e[0;107m====================================================\e[00;37;40m" # White
+
+busybox clear
+
+busybox echo ""
+busybox echo ""
+busybox echo "PDB-UI Theme Chooser"
+busybox echo ""
+busybox echo ""
+busybox echo ""
+busybox echo ""
+busybox echo "Choose Your Theme"
+busybox echo ""
+busybox echo -e "   1. Black     \e[0;100m======\e[00;37;40m"
+busybox echo -e "   2. Red       \e[0;101m======\e[00;37;40m"
+busybox echo -e "   3. Green     \e[0;102m======\e[00;37;40m"
+busybox echo -e "   4. Yellow    \e[0;103m======\e[00;37;40m"
+busybox echo -e "   5. Blue      \e[0;104m======\e[00;37;40m"
+busybox echo -e "   6. Purple    \e[0;105m======\e[00;37;40m"
+busybox echo -e "   7. Cyan      \e[0;106m======\e[00;37;40m"
+busybox echo -e "   8. White     \e[0;107m======\e[00;37;40m"
+busybox echo ""
+busybox echo ""
+busybox echo "9. Back To Main menu"
+busybox echo ""
+busybox echo -n "Please Select An Option [1-9]: "
+read character
+case $character in
+1) busybox clear;
+busybox echo "Changing Theme To Black..."
+busybox sleep 1
+busybox sed -i '/$divider/c\busybox echo -e $divider1' /system/bin/ABS
+busybox sed -i '/$divider/c\busybox echo -e $divider1' /system/bin/PDBZone
+busybox sed -i '/$divider/c\busybox echo -e $divider1' /system/bin/PDBC
+busybox sed -i '/$divider/c\busybox echo -e $divider1' /system/bin/PDBKM
+busybox sed -i '/$divider/c\busybox echo -e $divider1' /system/bin/PDBCheck
+busybox sed -i '/$divider/c\busybox echo -e $divider1' /system/bin/PDB.prop
+busybox echo ""
+busybox echo ""
+busybox echo "Theme Has Been Changed"
+busybox sleep 3
+PDBUI
+busybox clear ;;
+
+2) busybox clear;
+busybox echo "Changing Theme To Red..."
+busybox sleep 1
+busybox sed -i '/$divider/c\busybox echo -e $divider2' /system/bin/ABS
+busybox sed -i '/$divider/c\busybox echo -e $divider2' /system/bin/PDBZone
+busybox sed -i '/$divider/c\busybox echo -e $divider2' /system/bin/PDBC
+busybox sed -i '/$divider/c\busybox echo -e $divider2' /system/bin/PDBKM
+busybox sed -i '/$divider/c\busybox echo -e $divider2' /system/bin/PDBCheck
+busybox sed -i '/$divider/c\busybox echo -e $divider2' /system/bin/PDB.prop
+busybox echo ""
+busybox echo ""
+busybox echo "Theme Has Been Changed"
+busybox sleep 3
+PDBUI
+busybox clear ;;
+
+3) busybox clear;
+busybox echo "Changing Theme To Green..."
+busybox sleep 1
+busybox sed -i '/$divider/c\busybox echo -e $divider3' /system/bin/ABS
+busybox sed -i '/$divider/c\busybox echo -e $divider3' /system/bin/PDBZone
+busybox sed -i '/$divider/c\busybox echo -e $divider3' /system/bin/PDBC
+busybox sed -i '/$divider/c\busybox echo -e $divider3' /system/bin/PDBKM
+busybox sed -i '/$divider/c\busybox echo -e $divider3' /system/bin/PDBCheck
+busybox sed -i '/$divider/c\busybox echo -e $divider3' /system/bin/PDB.prop
+busybox echo ""
+busybox echo ""
+busybox echo "Theme Has Been Changed"
+busybox sleep 3
+PDBUI
+busybox clear ;;
+
+4) busybox clear;
+busybox echo "Changing Theme To Yellow..."
+busybox sleep 1
+busybox sed -i '/$divider/c\busybox echo -e $divider4' /system/bin/ABS
+busybox sed -i '/$divider/c\busybox echo -e $divider4' /system/bin/PDBZone
+busybox sed -i '/$divider/c\busybox echo -e $divider4' /system/bin/PDBC
+busybox sed -i '/$divider/c\busybox echo -e $divider4' /system/bin/PDBKM
+busybox sed -i '/$divider/c\busybox echo -e $divider4' /system/bin/PDBCheck
+busybox sed -i '/$divider/c\busybox echo -e $divider4' /system/bin/PDB.prop
+busybox echo ""
+busybox echo ""
+busybox echo "Theme Has Been Changed"
+busybox sleep 3
+PDBUI
+busybox clear ;;
+
+5) busybox clear;
+busybox echo "Changing Theme To Blue..."
+busybox sleep 1
+busybox sed -i '/$divider/c\busybox echo -e $divider5' /system/bin/ABS
+busybox sed -i '/$divider/c\busybox echo -e $divider5' /system/bin/PDBZone
+busybox sed -i '/$divider/c\busybox echo -e $divider5' /system/bin/PDBC
+busybox sed -i '/$divider/c\busybox echo -e $divider5' /system/bin/PDBKM
+busybox sed -i '/$divider/c\busybox echo -e $divider5' /system/bin/PDBCheck
+busybox sed -i '/$divider/c\busybox echo -e $divider5' /system/bin/PDB.prop
+busybox echo ""
+busybox echo ""
+busybox echo "Theme Has Been Changed"
+busybox sleep 3
+PDBUI
+busybox clear ;;
+
+6) busybox clear;
+busybox echo "Changing Theme To Purple..."
+busybox sleep 1
+busybox sed -i '/$divider/c\busybox echo -e $divider6' /system/bin/ABS
+busybox sed -i '/$divider/c\busybox echo -e $divider6' /system/bin/PDBZone
+busybox sed -i '/$divider/c\busybox echo -e $divider6' /system/bin/PDBC
+busybox sed -i '/$divider/c\busybox echo -e $divider6' /system/bin/PDBKM
+busybox sed -i '/$divider/c\busybox echo -e $divider6' /system/bin/PDBCheck
+busybox sed -i '/$divider/c\busybox echo -e $divider6' /system/bin/PDB.prop
+busybox echo ""
+busybox echo ""
+busybox echo "Theme Has Been Changed"
+busybox sleep 3
+PDBUI
+busybox clear ;;
+
+7) busybox clear;
+busybox echo "Changing Theme To Cyan..."
+busybox sleep 1
+busybox sed -i '/$divider/c\busybox echo -e $divider7' /system/bin/ABS
+busybox sed -i '/$divider/c\busybox echo -e $divider7' /system/bin/PDBZone
+busybox sed -i '/$divider/c\busybox echo -e $divider7' /system/bin/PDBC
+busybox sed -i '/$divider/c\busybox echo -e $divider7' /system/bin/PDBKM
+busybox sed -i '/$divider/c\busybox echo -e $divider7' /system/bin/PDBCheck
+busybox sed -i '/$divider/c\busybox echo -e $divider7' /system/bin/PDB.prop
+busybox echo ""
+busybox echo ""
+busybox echo "Theme Has Been Changed"
+busybox sleep 3
+PDBUI
+busybox clear ;;
+
+8) busybox clear;
+busybox echo "Changing Theme To White..."
+busybox sleep 1
+busybox sed -i '/$divider/c\busybox echo -e $divider8' /system/bin/ABS
+busybox sed -i '/$divider/c\busybox echo -e $divider8' /system/bin/PDBZone
+busybox sed -i '/$divider/c\busybox echo -e $divider8' /system/bin/PDBC
+busybox sed -i '/$divider/c\busybox echo -e $divider8' /system/bin/PDBKM
+busybox sed -i '/$divider/c\busybox echo -e $divider8' /system/bin/PDBCheck
+busybox sed -i '/$divider/c\busybox echo -e $divider8' /system/bin/PDB.prop
+busybox echo ""
+busybox echo ""
+busybox echo "Theme Has Been Changed"
+busybox sleep 3
+PDBUI
+busybox clear ;;
+
+9) busybox clear;
+sh system/bin/ABS
+busybox clear ;;
+
+esac
+busybox echo ""
+exit

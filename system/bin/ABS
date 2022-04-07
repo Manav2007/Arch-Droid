@@ -1,0 +1,395 @@
+#!/system/bin/sh
+#PROJECT DARK BOOSTER - ABS Tweaks
+#Version - 5.0
+#Devoloped by dark_optimistic @XDA
+#Copyright (C)2015 dark_optimistic
+#==============================================================#
+#========================= Licenses ===========================#
+#==============================================================#
+#  This program is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#  GNU General Public License for more details.
+#  You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#==============================================================#
+#======================= Important Note =======================#
+#==============================================================#
+#If you want to use my mod in your ROM than you don't need to take permission from me. All you need to is just give ME ( dark_optimistic @XDA) proper CREDITS.
+#
+#If you want to share my mod on your blog/website/Fb page or any other place than please do not reupload it. Simply give original Android File Host Download link provided on my XDA Thread. 
+#
+#Do not try to Rename or Modify ABS Tweaks. If I found you doing this than ready to face consequences. I will report you wherever you are.
+#
+#For more info check out my website - <http://www.techflue.com/>  & also see Licenses given below.
+#==============================================================#
+
+mount -o remount,rw /
+mount -o remount,rw rootfs
+mount -o remount,rw /system
+busybox mount -o remount,rw /
+busybox mount -o remount,rw rootfs
+busybox mount -o remount,rw /system
+
+divider1="\e[0;100m====================================================\e[00;37;40m" # Black
+divider2="\e[0;101m====================================================\e[00;37;40m" # Red
+divider3="\e[0;102m====================================================\e[00;37;40m" # Green
+divider4="\e[0;103m====================================================\e[00;37;40m" # Yellow
+divider5="\e[0;104m====================================================\e[00;37;40m" # Blue
+divider6="\e[0;105m====================================================\e[00;37;40m" # Purple
+divider7="\e[0;106m====================================================\e[00;37;40m" # Cyan
+divider8="\e[0;107m====================================================\e[00;37;40m" # White
+
+busybox clear
+busybox clear
+busybox echo -e $divider2
+echo -e "\e[01;33m###############  OXYGEN OF ANDROID  ################\e[00;37;40m"
+echo -e "\e[01;44m####################################################\e[00;37;40m"
+echo -e "\e[01;32m###########          ABS TWEAKS          ###########\e[00;37;40m"
+echo -e "\e[01;32m##########        Version:-  V5.0         ##########\e[00;37;40m"
+echo -e "\e[01;44m####################################################\e[00;37;40m"
+echo -e "\e[01;33m######  Developed By : dark_optimistic @XDA  #######\e[00;37;40m"
+busybox echo -e $divider2
+busybox echo""
+busybox echo""
+busybox echo -e "\e[01;32m                     Main Menu                      \e[00;37;40m" 
+id=`id`; id=`busybox echo ${id#*=}`; id=`busybox echo ${id%%\(*}`; id=`busybox echo ${id%% *}`
+if [ "$id" != "0" ] && [ "$id" != "root" ]; then
+	busybox sleep 2
+busybox echo -e $divider2
+	busybox echo ""
+	busybox echo "IT SEEMS THAT YOU FORGOT WRITING su FIRST!!"
+	busybox echo ""
+busybox echo -e $divider2
+	busybox sleep 1
+	busybox echo ""
+	busybox echo "PLEASE TYPE su BEFORE TYPING 'ABS'!!"
+	busybox echo ""
+	exit
+fi
+
+busybox echo "                                       "
+busybox sleep 1
+busybox echo ""
+busybox echo -e $divider2
+busybox echo "1. Check ABS Tweaks"
+busybox echo -e $divider2
+busybox echo "2. PDB Zone"
+busybox echo -e $divider2
+busybox echo "3. Uninstall ABS Tweaks"
+busybox echo -e $divider2
+busybox echo "4. Reboot Your Device Now"
+busybox echo -e $divider2
+busybox echo "5. PDB UI Theme Chooser"
+busybox echo -e $divider2
+busybox echo "6. ABS Tweaks Changelogs"
+busybox echo -e $divider2
+busybox echo "7. Your Device Info"
+busybox echo -e $divider2
+busybox echo "8. About ABS Tweaks (Must Open)"
+busybox echo -e $divider2
+busybox echo "9. ABS Tweaks Official XDA Thread"
+busybox echo -e $divider2
+busybox echo "10. My Facebook Profile"
+busybox echo -e $divider2
+busybox echo "11. My Website - TechFlue"
+busybox echo -e $divider2
+busybox echo ""
+busybox echo -n "Enter Your Choice Here[0-11]:     "            
+read character
+case $character in 
+
+1) busybox clear;
+sh system/bin/PDBCheck
+busybox echo ""
+busybox sleep 2
+busybox echo ""
+busybox echo -n "Want To Go Back?
+[ Yes = 1][ No = 2 ]: "
+Read Option
+if [ $option -ne 1 ]; then
+	busybox echo ""
+	busybox echo "Exiting From Here!"
+	busybox sleep 1
+	exit
+else
+	busybox echo ""
+	sh system/bin/ABS
+	busybox sleep 1
+fi
+busybox clear ;;
+
+2) busybox clear;
+busybox echo ""
+busybox echo "Executing PDB Zone"
+busybox sleep 2
+sh system/bin/PDBZone
+busybox clear ;;
+
+3) busybox clear ;
+busybox echo ""
+busybox echo "Do You Really Want To Uninstall ABS Tweaks"
+busybox echo "[ 1=Yes][ 2=No]"
+busybox echo "Enter Your Choice Here[1-2] : "
+read option
+
+if [ $option -eq 1 ] ; then
+busybox echo "Mounting /system partition..."
+busybox sleep 1
+mount -o remount,rw /
+mount -o remount,rw rootfs
+mount -o remount,rw /system
+mount -o remount,rw /data
+busybox mount -o remount,rw /
+busybox mount -o remount,rw rootfs
+busybox mount -o remount,rw /system
+busybox mount -o remount,rw /data
+busybox echo ""
+busybox echo "Restoring Previous Files"
+busybox sleep 5
+
+busybox cp /system/etc/PDB-ABS/adblocker/no_adblock /system/etc/hosts
+busybox chmod 644 /system/etc/hosts;
+
+busybox echo ""
+busybox echo "Removing Tweak"
+busybox sleep 5
+
+busybox rm -r /system/etc/PDB-ABS/
+busybox rm -f /system/etc/init.d/01pdbinternet
+busybox rm -f /system/etc/init.d/02pdbkernel
+busybox rm -f /system/etc/init.d/03pdbbattery
+busybox rm -f /system/etc/init.d/04pdbsqlite
+busybox rm -f /system/etc/init.d/05pdbiot
+busybox rm -f /system/etc/init.d/06pdbvmt
+busybox rm -f /system/etc/init.d/07pdbsdt
+busybox rm -f /system/etc/init.d/08pdbsmf
+busybox rm -f /system/etc/init.d/09pdbns
+
+busybox echo ""
+busybox echo "Removing Binaries & Libraries"
+busybox sleep 3
+
+busybox rm -f /system/bin/PDB.prop
+busybox rm -f /system/bin/PDBCheck
+busybox rm -f /system/bin/BOOST
+busybox rm -f /system/bin/PDBC
+busybox rm -f /system/bin/PDBF
+busybox rm -f /system/bin/PDBZone
+busybox rm -f /system/bin/PDBKM
+busybox rm -f /system/bin/ABS
+busybox rm -f /system/bin/PDBUI
+busybox rm -f /system/bin/PDBChangelog
+busybox rm -f /system/bin/PDBDevice
+busybox rm -f /system/bin/PDBProfiler
+
+busybox echo ""
+busybox echo "Removing Tweaks From build.prop"
+busybox sleep 5
+busybox sed -i '/#force_launcher_into_memory/d' /system/build.prop
+busybox sed -i '/ro.HOME_APP_ADJ/d' /system/build.prop
+busybox sed -i '/#Icrease_JPG_quality/d' /system/build.prop
+busybox sed -i '/ro.media.enc.jpeg.quality/d' /system/build.prop
+busybox sed -i '/#Render_ui_with_gpu/d' /system/build.prop
+busybox sed -i '/debug.sf.hw/d' /system/build.prop
+busybox sed -i '/#Decrease_dailing_out_delay/d' /system/build.prop
+busybox sed -i '/ro.telephony.call_ring.delay/d' /system/build.prop
+busybox sed -i '/#Increase_scrolling_responsiveness/d' /system/build.prop
+busybox sed -i '/windowsmgr.max_events_per_sec/d' /system/build.prop
+busybox sed -i '/ro.min_pointer_dur/d' /system/build.prop
+busybox sed -i '/ro.max.fling_velocity/d' /system/build.prop
+busybox sed -i '/ro.min.fling_velocity/d' /system/build.prop
+busybox sed -i '/#disable_debugging_notification_icon/d' /system/build.prop
+busybox sed -i '/persist.adb.notify/d' /system/build.prop
+busybox sed -i '/#touch_tweak/d' /system/build.prop
+busybox sed -i '/debug.performance.tuning/d' /system/build.prop
+busybox sed -i '/video.accelerate.hw/d' /system/build.prop
+busybox sed -i '/#increase_recording_quality/d' /system/build.prop
+busybox sed -i '/ro.media.dec.jpeg.memcap/d' /system/build.prop
+busybox sed -i '/ro.media.enc.hprof.vid.bps/d' /system/build.prop
+busybox sed -i '/ro.media.capture.maxres/d' /system/build.prop
+busybox sed -i '/ro.media.panorama.defres/d' /system/build.prop
+busybox sed -i '/ro.media.panorama.frameres/d' /system/build.prop
+busybox sed -i '/ro.camcorder.videoModes/d' /system/build.prop
+busybox sed -i '/ro.media.enc.hprof.vid.fps/d' /system/build.prop
+busybox sed -i '/#net_speed_tweak/d' /system/build.prop
+busybox sed -i '/net.tcp.buffersize.default/d' /system/build.prop
+busybox sed -i '/net.tcp.buffersize.wifi/d' /system/build.prop
+busybox sed -i '/net.tcp.buffersize.umts/d' /system/build.prop
+busybox sed -i '/net.tcp.buffersize.gprs/d' /system/build.prop
+busybox sed -i '/net.tcp.buffersize.edge/d' /system/build.prop
+busybox sed -i '/#Fix_blackscreen_issue/d' /system/build.prop
+busybox sed -i '/ro.lge.proximity.delay=25/d' /system/build.prop
+busybox sed -i '/mot.proximity.delay=25/d' /system/build.prop
+busybox sed -i '/#fix_app_issue/d' /system/build.prop
+busybox sed -i '/ro.kernel.android.checkjni/d' /system/build.prop
+busybox sed -i '/#button_lights_on_when_screen_on/d' /system/build.prop
+busybox sed -i '/ro.mot.buttonlight.timeout/d' /system/build.prop
+busybox sed -i '/#faster_booting_tweak/d' /system/build.prop
+busybox sed -i '/debug.sf.nobootanimation/d' /system/build.prop
+busybox sed -i '/ro.config.hw_quickpoweron/d' /system/build.prop
+busybox sed -i '/#on_screen_navigation_buttons/d' /system/build.prop
+busybox sed -i '/#better_signal_tweak/d' /system/build.prop
+busybox sed -i '/persist.cust.tel.eons/d' /system/build.prop
+busybox sed -i '/ro.config.hw_fast_dormancy/d' /system/build.prop
+busybox sed -i '/#internet_tweaks/d' /system/build.prop
+busybox sed -i '/ro.ril.hep/d' /system/build.prop
+busybox sed -i '/ro.ril.hsxpa/d' /system/build.prop
+busybox sed -i '/ro.ril.gprsclass/d' /system/build.prop
+busybox sed -i '/ro.ril.enable.dtm/d' /system/build.prop
+busybox sed -i '/ro.ril.hsdpa.category/d' /system/build.prop
+busybox sed -i '/ro.ril.enable.a53/d' /system/build.prop
+busybox sed -i '/ro.ril.3g.prefix/d' /system/build.prop
+busybox sed -i '/ro.ril.htcmaskw1.bitmask/d' /system/build.prop
+busybox sed -i '/ro.ril.htcmaskw1/d' /system/build.prop
+busybox sed -i '/ro.ril.hsupa/d' /system/build.prop
+busybox sed -i '/#flag_tweak/d' /system/build.prop
+busybox sed -i '/ro.config.hw_menu_unlockscreen/d' /system/build.prop
+busybox sed -i '/persist.sys.use_dithering/d' /system/build.prop
+busybox sed -i '/persist.sys.purgeable_assests/d' /system/build.prop
+busybox sed -i '/dalvik.vm.dexopt-flags=m/d' /system/build.prop
+busybox sed -i '/ro.mot.eri.iosalert.delay/d' /system/build.prop
+busybox sed -i '/#Better_voice_call_quality/d' /system/build.prop
+busybox sed -i '/ro.ril.enable.amr.wideband=1/d' /system/build.prop
+busybox sed -i '/#Improve_battery/d' /system/build.prop
+busybox sed -i '/ro.mot.eri.losalert.delay/d' /system/build.prop
+busybox sed -i '/ro.ril.power_collapse/d' /system/build.prop
+busybox sed -i '/pm.sleep_mode/d' /system/build.prop
+busybox sed -i '/wifi.supplicant_scan_interval/d' /system/build.prop
+busybox sed -i '/power.saving.mode/d' /system/build.prop
+busybox sed -i '/#Faster_streaming/d' /system/build.prop
+busybox sed -i '/media.stagefright.enable-player/d' /system/build.prop
+busybox sed -i '/media.stagefright.enable-meta/d' /system/build.prop
+busybox sed -i '/media.stagefright.enable-scan/d' /system/build.prop
+busybox sed -i '/media.stagefright.enable-http/d' /system/build.prop
+busybox sed -i '/media.stagefright.enable-record/d' /system/build.prop
+busybox sed -i '/media.stagefright.enable-aac/d' /system/build.prop
+busybox sed -i '/media.stagefright.enable-qcp/d' /system/build.prop
+busybox sed -i '/#Liquid_smooth_UI/d' /system/build.prop
+busybox sed -i '/persist.service.lgospd.enable/d' /system/build.prop
+busybox sed -i '/persist.service.pcsync.enable/d' /system/build.prop
+busybox sed -i '/touch.pressure.scale/d' /system/build.prop
+busybox sed -i '/#FPS_BOOST/d' /system/build.prop
+busybox sed -i '/debug.egl.swapinterval/d' /system/build.prop
+busybox sed -i '/#Disable_logcat/d' /system/build.prop
+busybox sed -i '/logcat.live=disable/d' /system/build.prop
+
+busybox echo "ABS Tweaks Has Been Completely Removed From Your Device"
+busybox sleep 3
+busybox echo ""
+busybox echo ""
+busybox echo ""
+busybox echo "Please Reboot Your Device To Make Changes"
+busybox sleep 2
+busybox rm -f /system/bin/ABS
+else
+busybox echo "Going Back To Main Menu"
+busybox sleep 5
+sh /system/bin/ABS
+fi
+busybox clear ;;
+4) busybox clear;
+busybox echo "3"
+busybox sleep 1
+busybox echo "2"
+busybox sleep 1
+busybox echo "1"
+busybox sleep 1
+busybox echo "Your Device Will Reboot Now"
+busybox sleep 2
+reboot
+busybox clear ;;
+
+5) busybox clear;
+busybox echo ""
+busybox echo "Opening PDB UI Theme Chooser"
+busybox sleep 2
+sh system/bin/PDBUI
+busybox clear ;;
+
+6) busybox clear;
+busybox echo ""
+busybox echo "Showing ABS Tweaks Changelogs"
+busybox sleep 2
+sh system/bin/PDBChangelog
+busybox clear ;;
+
+7) busybox clear;
+busybox echo ""
+busybox echo "Showing Device Info"
+busybox sleep 2
+sh system/bin/PDBDevice
+busybox clear;;
+
+8) busybox clear;
+busybox echo ""
+busybox sleep 1
+busybox echo "Please wait few secs"
+busybox sleep 0.5
+busybox echo "Waiting for your web browser"
+busybox sleep 0.5
+su -c "LD_LIBRARY_PATH=/vendor/lib:/system/lib am start http://www.techflue.com/about-abs-tweaks/"
+busybox sleep 1
+busybox echo ""
+busybox sleep 0.5
+busybox echo "Going back to Main Menu"
+busybox sleep 1
+sh system/bin/ABS
+busybox clear ;;
+
+9) busybox clear;
+busybox echo ""
+busybox sleep 1
+busybox echo "Please wait few secs"
+busybox sleep 0.5
+busybox echo "Waiting for your web browser"
+busybox sleep 0.5
+su -c "LD_LIBRARY_PATH=/vendor/lib:/system/lib am start http://forum.xda-developers.com/android/software-hacking/tweak-arkaynine-boost-script-v3-0-t3120404"
+busybox sleep 1
+busybox echo ""
+busybox sleep 0.5
+busybox echo "Going back to Main Menu"
+busybox sleep 1
+sh system/bin/ABS
+busybox clear ;;
+
+10) busybox clear;
+busybox echo ""
+busybox sleep 1
+busybox echo "Please wait few secs"
+busybox sleep 0.5
+busybox echo "Waiting for your web browser"
+busybox sleep 0.5
+su -c "LD_LIBRARY_PATH=/vendor/lib:/system/lib am start http://www.facebook.com/darkxda"
+busybox sleep 1
+busybox echo ""
+busybox sleep 0.5
+busybox echo "Going back to Main Menu"
+busybox sleep 1
+sh system/bin/ABS
+busybox clear ;;
+
+11) busybox clear;
+busybox echo ""
+busybox sleep 1
+busybox echo "Please wait few secs"
+busybox sleep 0.5
+busybox echo "Waiting for your web browser"
+busybox sleep 0.5
+su -c "LD_LIBRARY_PATH=/vendor/lib:/system/lib am start http://www.techflue.com/"
+busybox sleep 1
+busybox echo ""
+busybox sleep 0.5
+busybox echo "Going back to Main Menu"
+busybox sleep 1
+sh system/bin/ABS
+busybox clear ;;
+
+*) busybox clear;
+busybox echo "Invalid Option!! Exiting Now!"
+busybox sleep 1
+esac
+busybox echo ""
+exit

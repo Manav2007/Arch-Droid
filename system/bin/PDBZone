@@ -1,0 +1,467 @@
+#!/system/bin/sh
+#PROJECT DARK BOOSTER - ABS Tweaks
+#Version - 5.0
+#Devoloped by dark_optimistic @XDA
+#Copyright (C)2015 dark_optimistic
+#==============================================================#
+#========================= Licenses ===========================#
+#==============================================================#
+#  This program is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#  GNU General Public License for more details.
+#  You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#==============================================================#
+#======================= Important Note =======================#
+#==============================================================#
+#If you want to use my mod in your ROM than you don't need to take permission from me. All you need to is just give ME ( dark_optimistic @XDA) proper CREDITS.
+#
+#If you want to share my mod on your blog/website/Fb page or any other place than please do not reupload it. Simply give original Android File Host Download link provided on my XDA Thread. 
+#
+#Do not try to Rename or Modify ABS Tweaks. If I found you doing this than ready to face consequences. I will report you wherever you are.
+#
+#For more info check out my website - <http://www.techflue.com/>  & also see Licenses given below.
+#==============================================================#
+
+mount -o remount,rw /
+mount -o remount,rw rootfs
+mount -o remount,rw /system
+busybox mount -o remount,rw /
+busybox mount -o remount,rw rootfs
+busybox mount -o remount,rw /system
+
+divider1="\e[0;100m====================================================\e[00;37;40m" # Black
+divider2="\e[0;101m====================================================\e[00;37;40m" # Red
+divider3="\e[0;102m====================================================\e[00;37;40m" # Green
+divider4="\e[0;103m====================================================\e[00;37;40m" # Yellow
+divider5="\e[0;104m====================================================\e[00;37;40m" # Blue
+divider6="\e[0;105m====================================================\e[00;37;40m" # Purple
+divider7="\e[0;106m====================================================\e[00;37;40m" # Cyan
+divider8="\e[0;107m====================================================\e[00;37;40m" # White
+
+busybox clear
+busybox clear
+busybox echo -e $divider2
+echo -e "\e[01;33m###############  OXYGEN OF ANDROID  ################\e[00;37;40m"
+echo -e "\e[01;44m####################################################\e[00;37;40m"
+echo -e "\e[01;32m###########          ABS TWEAKS          ###########\e[00;37;40m"
+echo -e "\e[01;32m##########        Version:-  V5.0         ##########\e[00;37;40m"
+echo -e "\e[01;44m####################################################\e[00;37;40m"
+echo -e "\e[01;33m######  Developed By : dark_optimistic @XDA  #######\e[00;37;40m"
+busybox echo -e $divider2
+busybox echo""
+busybox echo""
+busybox echo -e "\e[01;32m                     PDB Zone                      \e[00;37;40m" 
+busybox echo""
+busybox echo""
+busybox echo""
+
+busybox=system/etc/PDB-ABS/Extras/busybox
+
+id=`id`; id=`busybox echo ${id#*=}`; id=`busybox echo ${id%%\(*}`; id=`busybox echo ${id%% *}`
+if [ "$id" != "0" ] && [ "$id" != "root" ]; then
+	busybox sleep 2
+busybox echo -e $divider2
+	busybox echo ""
+	busybox echo "IT SEEMS THAT YOU FORGOT WRITING su FIRST!!"
+	busybox echo ""
+busybox echo -e $divider2
+	busybox sleep 1
+	busybox echo ""
+	busybox echo "PLEASE TYPE su BEFORE TYPING 'ABS'!!"
+	busybox echo ""
+	exit
+fi
+init=/system/etc/init.d
+menu=/system/etc/PDB-ABS
+
+if [ -e $init/22pdbmul ]; then
+	pdb_pro="\e[1;33mMultitasking\e[0m"
+elif [ -e $init/21pdbbal ]; then
+	pdb_pro="\e[1;36mBalanced\e[0m"
+elif [ -e $init/23pdbgam ]; then
+	pdb_pro="\e[1;34mGaming\e[0m"
+else
+	pdb_pro="\e[1;30mDefault\e[0m"
+fi
+
+if [ "`grep PDBADBLOCKER /system/etc/hosts`" ]; then
+	ad_block="\e[1;32mEnabled\e[0m"
+else
+	ad_block="\e[1;31mDisabled\e[0m"
+fi
+if [ -e $init/01pdbinternet ]; then
+	int="\e[1;32mOn\e[0m"
+else
+	int="\e[1;31mOff\e[0m"
+fi
+if [ -e $init/02pdbkernel ]; then
+	msck="\e[1;32mOn\e[0m"
+else
+	msck="\e[1;31mOff\e[0m"
+fi
+if [ -e $init/03pdbbattery ]; then
+	bt="\e[1;32mOn\e[0m"
+else
+	bt="\e[1;31mOff\e[0m"
+fi
+if [ -e $init/04pdbsqlite ]; then
+	sql="\e[1;32mOn\e[0m"
+else
+	sql="\e[1;31mOff\e[0m"
+fi
+if [ -e $init/05pdbiot ]; then
+	iot="\e[1;32mOn\e[0m"
+else
+	iot="\e[1;31mOff\e[0m"
+fi
+if [ -e $init/06pdbvmt ]; then
+	vmt="\e[1;32mOn\e[0m"
+else
+	vmt="\e[1;31mOff\e[0m"
+fi
+if [ -e $init/07pdbsdt ]; then
+	sdt="\e[1;32mOn\e[0m"
+else
+	sdt="\e[1;31mOff\e[0m"
+fi
+if [ -e $init/08pdbsmf ]; then
+	smf="\e[1;32mOn\e[0m"
+else
+	smf="\e[1;31mOff\e[0m"
+fi
+if [ -e $init/09pdbns ]; then
+	ns="\e[1;32mOn\e[0m"
+else
+	ns="\e[1;31mOff\e[0m"
+	fi
+
+busybox echo -e $divider2
+busybox echo ""
+busybox echo "1.  PDB-Fstrim Engine"
+busybox echo "2.  PDB-Booster"
+busybox echo "3.  PDB-Junk Cleaner"
+busybox echo "4.  PDB-Media Server Killer"
+busybox echo "5.  PDB-Build.prop Tweaker"
+busybox echo ""
+busybox echo -e $divider2
+busybox echo""
+busybox echo -e "6.  PDB-Profiler                    || $pdb_pro"
+busybox echo ""
+busybox echo -e $divider2
+busybox echo""
+busybox echo -e "7.  PDB-Ad Blocker                  || $ad_block" 
+busybox echo -e "8.  PDB-Internet Speed Tweaker      || $int"
+busybox echo -e "9.  PDB-Kernel Tweaker              || $msck"
+busybox echo -e "10. PDB-Battery Saver               || $bt"
+busybox echo -e "11. PDB-SQ Lite Database Optimiser  || $sql"
+busybox echo -e "12. PDB-I/O Tweaker                 || $iot"
+busybox echo -e "13. PDB-VM Tweaker                  || $vmt"
+busybox echo -e "14. PDB-SD Card Speed Tweaker       || $sdt"
+busybox echo -e "15. PDB-Strict Minfree Tweaker      || $smf"
+busybox echo -e "16. PDB-No Normalised Sleeper       || $ns"
+busybox echo ""
+busybox echo -e $divider2
+busybox echo ""
+busybox echo ""
+busybox echo "0. EXIT"
+busybox sleep 1
+busybox echo ""
+busybox echo ""
+busybox echo -n "Please Choose Your Option[0-15]: "
+read option
+
+if [ $option -eq 1 ] ; then
+	busybox clear
+	busybox sleep 1
+	busybox echo ""
+	busybox echo "Executing PDB-Fstrim Engine"
+	busybox sleep 5
+	busybox echo "Triming cache!!"
+	fstrim -v /cache;
+	busybox sleep 1
+	busybox echo ""
+	busybox echo "Triming data!!"
+	fstrim -v /data;
+	busybox sleep 1
+	busybox echo ""
+	busybox echo "Triming system!!"
+	fstrim -v /system;
+	busybox sleep 1
+	busybox echo ""
+	busybox echo "Done !!!"
+	busybox sleep 3
+	sh /system/bin/PDBZone
+fi
+if [ $option -eq 2 ] ; then
+	sh /system/bin/BOOST
+	busybox sleep 1
+	busybox echo -n "# GO BACK TO MENU?
+	[ Yes = 1 | No = 2 ]: "
+	read option
+	if [ $option -ne 1 ] ; then
+		busybox echo ""
+		busybox echo ""
+		busybox sleep 1
+		exit
+	else
+		busybox echo ""
+		sh /system/bin/PDBZone
+		busybox sleep 1
+	fi
+fi
+if [ $option -eq 3 ] ; then
+	busybox echo "Opening PDB-Cleaner"
+	busybox sleep 2
+	sh /system/bin/PDBC
+fi
+if [ $option -eq 4 ] ; then
+	busybox echo "Executing PDB-Media Killer"
+	busybox sleep 2
+	sh /system/bin/PDBKM
+fi
+if [ $option -eq 5 ] ; then
+	busybox echo "Opening PDB-Build.prop Tweaker"
+	busybox sleep 2
+	sh /system/bin/PDB.prop
+fi
+
+if [ $option -eq 6 ]; then
+	busybox echo "Executing PDB Profiler Menu"
+	busybox sleep 2
+	sh system/bin/PDBProfiler
+fi
+if [ $option -eq 7 ] ; then
+	if [ "`grep PDBADBLOCKER /system/etc/hosts`" ] ; then
+		busybox echo "Disabling PDB-Adblocker"
+		busybox sleep 1
+		busybox cp /system/etc/PDB-ABS/adblocker/no_adblock /system/etc/hosts
+		busybox chmod 644 /system/etc/hosts;
+		busybox echo "Done!"
+		busybox echo ""
+		busybox echo "Please Reboot Your Device!!!"
+		busybox sleep 3
+		sh /system/bin/PDBZone
+	else
+		busybox echo "Enabling PDB-Adblocker"
+		busybox sleep 1
+		busybox cp /system/etc/PDB-ABS/adblocker/adblock /system/etc/hosts
+		busybox chmod 644 /system/etc/hosts;
+		busybox echo "Done!"
+		busybox echo ""
+		busybox echo "Please Reboot Your Device!!!"
+		busybox sleep 3
+		sh /system/bin/PDBZone
+	fi
+fi
+if [ $option -eq 8 ] ; then
+	if [ -e $init/01pdbinternet  ]; then
+		busybox echo "Deactivating PDB-Internet Speed Tweaker"
+		busybox sleep 1
+		busybox rm $init/01pdbinternet
+		busybox echo "Done!"
+		busybox echo ""
+		busybox echo "Please Reboot Your Device!!!"
+		busybox sleep 3
+		sh /system/bin/PDBZone
+	else
+		busybox echo "Activating PDB-Internet Speed Tweaker"
+		busybox sleep 1
+		busybox cp $menu/01pdbinternet $init/01pdbinternet
+		busybox chmod 755 $init/01pdbinternet
+		busybox echo "Done!"
+		busybox echo ""
+		busybox echo "Please Reboot Your Device!!!"
+		busybox sleep 3
+		sh /system/bin/PDBZone
+	fi
+fi
+if [ $option -eq 9 ] ; then
+	if [ -e $init/02pdbkernel ] ; then
+		busybox echo "Deactivating PDB-Kernel Tweaker"
+		busybox sleep 1
+		busybox rm $init/02pdbkernel
+		busybox echo "Done!"
+		busybox echo ""
+		busybox echo "Please Reboot Your Device!!!"
+		busybox sleep 3
+		sh /system/bin/PDBZone
+	else
+		busybox echo "Activating PDB-Kernel Tweaker"
+		busybox sleep 1
+		busybox cp $menu/02pdbkernel $init/02pdbkernel
+		busybox chmod 755 $init/02pdbkernel
+		busybox echo "Done!"
+		busybox echo ""
+		busybox echo "Please Reboot Your Device!!!"
+		busybox sleep 3
+		sh /system/bin/PDBZone
+	fi
+fi
+if [ $option -eq 10 ] ; then
+	if [ -e $init/03pdbbattery ] ; then
+		busybox echo "Deactivating PDB-Battery Optimiser"
+		busybox sleep 1
+		busybox rm $init/03pdbbattery
+		busybox echo "Done!"
+		busybox echo ""
+		busybox echo "Please Reboot Your Device!!!"
+		busybox sleep 3
+		sh /system/bin/PDBZone
+	else
+		busybox echo "Activating PDB-Battery Optimiser"
+		busybox sleep 1
+		busybox cp $menu/03pdbbattery $init/03pdbbattery
+		busybox chmod 755 $init/03pdbbattery
+		busybox echo "Done!"
+		busybox echo ""
+		busybox echo "Please Reboot Your Device!!!"
+		busybox sleep 3
+		sh /system/bin/PDBZone
+	fi
+fi
+if [ $option -eq 11 ] ; then
+	if [ -e $init/04pdbsqlite ] ; then
+		busybox echo "Deactivating PDB-SQLite Database Optimiser"
+		busybox sleep 1
+		busybox rm $init/04pdbsqlite
+		busybox echo "Done!"
+		busybox echo ""
+		busybox echo "Please Reboot Your Device!!!"
+		busybox sleep 3
+		sh /system/bin/PDBZone
+	else
+		busybox echo "Activating PDB-SQLite Database Optimiser"
+		busybox sleep 1
+		busybox cp $menu/04pdbsqlite $init/04pdbsqlite
+		busybox chmod 755 $init/04pdbsqlite
+		busybox echo "Done!"
+		busybox echo ""
+		busybox echo "Please Reboot Your Device!!!"
+		busybox sleep 3
+		sh /system/bin/PDBZone
+	fi
+fi
+if [ $option -eq 12 ] ; then
+	if [ -e $init/05pdbiot ] ; then
+		busybox echo "Deactivating PDB-I/O Tweaker"
+		busybox sleep 1
+		busybox rm $init/05pdbiot
+		busybox echo "Done!"
+		busybox echo ""
+		busybox echo "Please Reboot Your Device!!!"
+		busybox sleep 3
+		sh /system/bin/PDBZone
+	else
+		busybox echo "Activating PDB-I/O Tweaker"
+		busybox sleep 1
+		busybox cp $menu/05pdbiot $init/05pdbiot
+		busybox chmod 755 $init/04misckernel
+		busybox echo "Done!"
+		busybox echo ""
+		busybox echo "Please Reboot Your Device!!!"
+		busybox sleep 3
+		sh /system/bin/PDBZone
+	fi
+fi
+if [ $option -eq 13 ] ; then
+	if [ -e $init/06pdbvmt ] ; then
+		busybox echo "Deactivating PDB-VM Tweaker"
+		busybox sleep 1
+		busybox rm $init/06pdbvmt
+		busybox echo "Done!"
+		busybox echo ""
+		busybox echo "Please Reboot Your Device!!!"
+		busybox sleep 3
+		sh /system/bin/PDBZone
+	else
+		busybox echo "Activating PDB-VM Tweaker"
+		busybox sleep 1
+		busybox cp $menu/06pdbvmt $init/06pdbvmt
+		busybox chmod 755 $init/06pdbvmt
+		busybox echo "Done!"
+		busybox echo ""
+		busybox echo "Please Reboot Your Device!!!"
+		busybox sleep 3
+		sh /system/bin/PDBZone
+	fi
+fi
+if [ $option -eq 14 ] ; then
+	if [ -e $init/07pdbsdt ] ; then
+		busybox echo "Deactivating PDB-SD Card Speed Tweaker"
+		busybox sleep 1
+		busybox rm $init/07pdbsdt
+		busybox echo "Done!"
+		busybox echo ""
+		busybox echo "Please Reboot Your Device!!!"
+		busybox sleep 3
+		sh /system/bin/PDBZone
+	else
+		busybox echo "Activating PDB-SD Card Speed Tweaker"
+		busybox sleep 1
+		busybox cp $menu/07pdbsdt $init/07pdbsdt
+		busybox chmod 755 $init/07pdbsdt
+		busybox echo "Done!"
+		busybox echo ""
+		busybox echo "Please Reboot Your Device!!!"
+		busybox sleep 3
+		sh /system/bin/PDBZone
+	fi
+fi
+	if [ $option -eq 15 ] ; then
+	if [ -e $init/08pdbsmf ] ; then
+		busybox echo "Deactivating PDB-Strict Minfree Tweaker"
+		busybox sleep 1
+		busybox rm $init/08pdbsmf
+		busybox echo "Done!"
+		busybox echo ""
+		busybox echo "Please Reboot Your Device!!!"
+		busybox sleep 3
+		sh /system/bin/PDBZone
+	else
+		busybox echo "Activating PDB-Strict Minfree Tweaker"
+		busybox sleep 1
+		busybox cp $menu/08pdbsmf $init/08pdbsmf
+		busybox chmod 755 $init/08pdbsmf
+		busybox echo "Done!"
+		busybox echo ""
+		busybox echo "Please Reboot Your Device!!!"
+		busybox sleep 3
+		sh /system/bin/PDBZone
+	fi
+fi
+	if [ $option -eq 16 ] ; then
+	if [ -e $init/09pdbns ] ; then
+		busybox echo "Deactivating PDB-No Normalised Sleeper"
+		busybox sleep 1
+		busybox rm $init/09pdbns
+		busybox echo "Done!"
+		busybox echo ""
+		busybox echo "Please Reboot Your Device!!!"
+		busybox sleep 3
+		sh /system/bin/PDBZone
+	else
+		busybox echo "Activating PDB-No Normalised Sleeper"
+		busybox sleep 1
+		busybox cp $menu/09pdbns $init/09pdbns
+		busybox chmod 755 $init/09pdbns
+		busybox echo "Done!"
+		busybox echo ""
+		busybox echo "Please Reboot Your Device!!!"
+		busybox sleep 3
+		sh /system/bin/PDBZone
+	fi
+fi
+if [ $option -eq 0 ] ; then
+busybox clear
+busybox echo "Going Back To Main Menu!!" busybox sleep 2
+sh /system/bin/ABS
+fi
+if [ $option -eq * ] ; then
+busybox echo "Invalid Option! Please Try Again!!"
+busybox sleep 1
+sh /system/bin/PDBZone
+fi

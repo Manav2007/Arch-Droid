@@ -1,0 +1,79 @@
+#!/system/bin/sh
+#PROJECT DARK BOOSTER - ABS Tweaks
+#Version - 5.0
+#Devoloped by dark_optimistic @XDA
+#Copyright (C)2015 dark_optimistic
+#==============================================================#
+#========================= Licenses ===========================#
+#==============================================================#
+#  This program is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#  GNU General Public License for more details.
+#  You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#==============================================================#
+#======================= Important Note =======================#
+#==============================================================#
+#If you want to use my mod in your ROM than you don't need to take permission from me. All you need to is just give ME ( dark_optimistic @XDA) proper CREDITS.
+#
+#If you want to share my mod on your blog/website/Fb page or any other place than please do not reupload it. Simply give original Android File Host Download link provided on my XDA Thread. 
+#
+#Do not try to Rename or Modify ABS Tweaks. If I found you doing this than ready to face consequences. I will report you wherever you are.
+#
+#For more info check out my website - <http://www.techflue.com/>  & also see Licenses given below.
+#==============================================================#
+
+mount -o remount,rw /
+mount -o remount,rw rootfs
+mount -o remount,rw /system
+busybox mount -o remount,rw /
+busybox mount -o remount,rw rootfs
+busybox mount -o remount,rw /system
+
+divider1="\e[0;100m====================================================\e[00;37;40m" # Black
+divider2="\e[0;101m====================================================\e[00;37;40m" # Red
+divider3="\e[0;102m====================================================\e[00;37;40m" # Green
+divider4="\e[0;103m====================================================\e[00;37;40m" # Yellow
+divider5="\e[0;104m====================================================\e[00;37;40m" # Blue
+divider6="\e[0;105m====================================================\e[00;37;40m" # Purple
+divider7="\e[0;106m====================================================\e[00;37;40m" # Cyan
+divider8="\e[0;107m====================================================\e[00;37;40m" # White
+
+busybox clear
+busybox clear
+busybox echo -e $divider2
+echo -e "\e[01;33m###############  OXYGEN OF ANDROID  ################\e[00;37;40m"
+echo -e "\e[01;44m####################################################\e[00;37;40m"
+echo -e "\e[01;32m###########          ABS TWEAKS          ###########\e[00;37;40m"
+echo -e "\e[01;32m##########        Version:-  V5.0         ##########\e[00;37;40m"
+echo -e "\e[01;44m####################################################\e[00;37;40m"
+echo -e "\e[01;33m######  Developed By : dark_optimistic @XDA  #######\e[00;37;40m"
+busybox echo -e $divider2
+busybox echo""
+busybox echo""
+busybox echo -e "\e[01;32m                Media Server Killer               \e[00;37;40m" 
+busybox echo""
+busybox echo""
+busybox echo -e $divider2
+echo ""
+busybox echo " Successfully Killed!!"
+
+if [ "`pgrep media`" ] && [ "`pgrep mediaserver`" ]; then
+	busybox killall -9 android.process.media
+	busybox killall -9 mediaserver
+fi
+
+busybox echo "Do You Want To Go Back"
+busybox echo "[1=Yes] [2=No]"
+busybox sleep 2
+busybox echo "choose your option :  "
+read option
+if [ $option -eq 1 ] ; then
+   sh /system/bin/PDBZone
+else
+sleep 3
+exit
+fi
