@@ -59,7 +59,6 @@ If you are an Advanced user and you have used Arch Linux, then you are good to g
 | Device Name | Device Code Name | Device Model |
 
 | --------------- | --------------- | --------------- |
-
 |    Lumia 525    |      Glee       |     RM-998      |
 
 
