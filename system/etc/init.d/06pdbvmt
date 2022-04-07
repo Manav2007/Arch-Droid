@@ -1,0 +1,125 @@
+#!/system/bin/sh
+#PROJECT DARK BOOSTER - ABS Tweaks
+#Version - 5.0
+#Devoloped by dark_optimistic @XDA
+#Copyright (C)2015 dark_optimistic
+#==============================================================#
+#========================= Licenses ===========================#
+#==============================================================#
+#  This program is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#  GNU General Public License for more details.
+#  You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#==============================================================#
+#======================= Important Note =======================#
+#==============================================================#
+#If you want to use my mod in your ROM than you don't need to take permission from me. All you need to is just give ME ( dark_optimistic @XDA) proper CREDITS.
+#
+#If you want to share my mod on your blog/website/Fb page or any other place than please do not reupload it. Simply give original Android File Host Download link provided on my XDA Thread. 
+#
+#Do not try to Rename or Modify ABS Tweaks. If I found you doing this than ready to face consequences. I will report you wherever you are.
+#
+#For more info check out my website - <http://www.techflue.com/>  & also see Licenses given below.
+#==============================================================#
+
+
+mount -o remount,rw /
+mount -o remount,rw rootfs
+mount -o remount,rw /system
+busybox mount -o remount,rw /
+busybox mount -o remount,rw rootfs
+busybox mount -o remount,rw /system
+
+
+busybox sleep 10
+
+mem=`free|grep Mem | awk '{print $2}'`
+if [ "$mem" -lt 512000 ]; then
+	busybox chmod 644 /proc/sys/vm/*
+	busybox sysctl -e -w vm.dirty_background_ratio=15
+	busybox sysctl -e -w vm.dirty_expire_centisecs=500
+	busybox sysctl -e -w vm.dirty_ratio=30
+	busybox sysctl -e -w vm.dirty_writeback_centisecs=3000
+	busybox sysctl -e -w vm.min_free_kbytes=3072
+	busybox sysctl -e -w vm.overcommit_memory=1
+       busybox sysctl -e -w vm.overcommit_ratio=80
+       busybox sysctl -e -w vm.laptop_mode=0
+       busybox sysctl -e -w vm.page-cluster=0
+       busybox sysctl -e -w vm.min_free_order_shift=4
+       busybox sysctl -e -w vm.lowmem_reserve_ratio='64 64 64'
+       busybox sysctl -e -w vm.mmap_min_addr=0
+if [ -e /sys/block/zram* ];
+	then
+		busybox sysctl -e -w vm.swappiness=70
+	else
+		busybox sysctl -e -w vm.swappiness=40
+	fi
+	busybox echo "VM profile for 512mb applied"
+elif [ "$mem" -lt 768000 ]; then
+	busybox chmod 644 /proc/sys/vm/*
+	busybox sysctl -e -w vm.dirty_background_ratio=10
+	busybox sysctl -e -w vm.dirty_expire_centisecs=500
+	busybox sysctl -e -w vm.dirty_ratio=20
+	busybox sysctl -e -w vm.dirty_writeback_centisecs=3000
+	busybox sysctl -e -w vm.min_free_kbytes=4096
+	busybox sysctl -e -w vm.overcommit_memory=1
+       busybox sysctl -e -w vm.overcommit_ratio=80
+       busybox sysctl -e -w vm.laptop_mode=0
+       busybox sysctl -e -w vm.page-cluster=0
+       busybox sysctl -e -w vm.min_free_order_shift=4
+       busybox sysctl -e -w vm.lowmem_reserve_ratio='64 64 64'
+       busybox sysctl -e -w vm.mmap_min_addr=0
+if [ -e /sys/block/zram* ];
+	then
+		busybox sysctl -e -w vm.swappiness=70
+	else
+		busybox sysctl -e -w vm.swappiness=30
+	fi
+	busybox echo "VM profile for 768mb applied"
+elif [ "$mem" -lt 1024000 ]; then
+	busybox chmod 644 /proc/sys/vm/*
+	busybox sysctl -e -w vm.dirty_background_ratio=5
+	busybox sysctl -e -w vm.dirty_expire_centisecs=500
+	busybox sysctl -e -w vm.dirty_ratio=10
+	busybox sysctl -e -w vm.dirty_writeback_centisecs=3000
+	busybox sysctl -e -w vm.min_free_kbytes=4096
+	busybox sysctl -e -w vm.overcommit_memory=1
+       busybox sysctl -e -w vm.overcommit_ratio=80
+       busybox sysctl -e -w vm.laptop_mode=0
+       busybox sysctl -e -w vm.page-cluster=0
+       busybox sysctl -e -w vm.min_free_order_shift=4
+       busybox sysctl -e -w vm.lowmem_reserve_ratio='64 64 64'
+       busybox sysctl -e -w vm.mmap_min_addr=0
+if [ -e /sys/block/zram* ];
+	then
+		busybox sysctl -e -w vm.swappiness=70
+	else
+		busybox sysctl -e -w vm.swappiness=20
+	fi
+	busybox echo "VM profile for 1gb applied"
+else
+	busybox chmod 644 /proc/sys/vm/*
+	busybox sysctl -e -w vm.dirty_background_ratio=5
+	busybox sysctl -e -w vm.dirty_expire_centisecs=500
+	busybox sysctl -e -w vm.dirty_ratio=10
+	busybox sysctl -e -w vm.dirty_writeback_centisecs=3000
+	busybox sysctl -e -w vm.min_free_kbytes=4096
+	busybox sysctl -e -w vm.overcommit_memory=1
+       busybox sysctl -e -w vm.overcommit_ratio=80
+       busybox sysctl -e -w vm.laptop_mode=0
+       busybox sysctl -e -w vm.page-cluster=0
+       busybox sysctl -e -w vm.min_free_order_shift=4
+       busybox sysctl -e -w vm.lowmem_reserve_ratio='64 64 64'
+       busybox sysctl -e -w vm.mmap_min_addr=0
+if [ -e /sys/block/zram* ];
+	then
+		busybox sysctl -e -w vm.swappiness=70
+	else
+		busybox sysctl -e -w vm.swappiness=20
+	fi
+	busybox echo "VM profile for 1gb+ applied"
+fi

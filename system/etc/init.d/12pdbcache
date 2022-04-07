@@ -1,0 +1,367 @@
+#!/system/bin/sh
+
+#-------------------------------------------
+#   presented by Turbo Boost Team
+#       delta-roh & Harbir
+#-------------------------------------------
+#     swap file in any partition
+#   supports /cache /data /system
+#
+#     ****                    script
+#   **                     idea from and
+#   **              ****    developed by
+#    ***          **    **
+#     * **       **     **   delta-roh
+#   **    **     ** ****
+#  **      **     **          in 2013
+#  **     **       ****
+#    ****             **
+#                    **
+#-------------------------------------------
+# Use file in a partition as swap space
+#
+# description:
+# - this script creates a file in the
+#   configured partition as swap space
+#
+# installation:
+# - change the parameters in the first
+#   section to your needs;
+#   swapfile size in MB
+#   (if size is changed, the swapfile
+#   will be recreated automatically)
+# - copy this script to /etc/init.d
+# - change the owner/group of the
+#   script:
+#   (chown root.shell 98swap_cache_vX)
+# - change the access rights of the
+#   script:
+#   (chmod 755 98swap_cache_vX)
+# - reboot your device
+# - now check the log file
+#
+# uninstall:
+# - change access rights of the
+#   script or delete it:
+#   (chmod 644 98swap_cache_vX)
+# - stop swaping or just reboot
+#   (swapoff /cache/swap/swap.img)
+# - delete swapfile, e.g: 
+#   (rm /cache/swap/swap.img)
+#
+# version history:
+#   changed    by        ver  comment
+#   2013-02-02 delta-roh 1.00 release
+#   2013-02-14 delta-roh 1.01 changes:
+#               changed some comments
+#   2013-02-24 delta-roh 2.00 changes:
+#               script restructured
+#               new var for partition
+#               new var for min. free
+#               new var for min. swap
+#               compatibility fix:
+#               (e.g.Incredible)
+#               -correct partition rights
+#               -commands without path
+#               auto-correction of size
+#               (correct to avail.-min.free)
+#               auto check min.free mem.
+#               (recreate if necessary)
+#               auto check min. swap size
+#               (only create if larger)
+#               log file now in /data
+#   2013-03-16 delta-roh 2.80 changes:
+#               compatibility fix:
+#               (e.g. Vivid)
+#               -available_size (Byte)
+#                on data exceeds 32Bit
+#                corrected to MByte
+#                current_size also to MB
+#   2013-03-16 delta-roh 3.05 changes:
+#               allow /system
+#               check partition r/w
+#               remount if necessary
+#   2013-07-09 delta-roh 3.06 changes:
+#               grep -> busybox grep
+#
+version_swap_cache="V3.00"
+#----------------------------------------
+
+#----------------------------------------
+# please change/adjust these params
+#----------------------------------------
+# partition /cache or /data or /system
+partition="/cache";
+
+# the requested swap file size in MB
+swap_file_size_mb=200;
+
+# min. free memory; below that
+#  value of free memory, the
+#  swap file will be resized -
+#  very nice for data partition,
+#  where 150MB min. is required
+min_free_space_mb=2;
+
+# minimum size of the swap file
+# if size is lower, the swap will
+#  not be created
+min_swap_size_mb=20;
+
+# may be changed but not necessary
+sub_dir="swap";
+log_file_name="swap_${partition:1}.log";
+log_file_path="/data/swap";
+swap_file_name="swap.img";
+swappiness=80;
+
+# global variables - do not change
+delete_flag=0;
+exit_flag=0;
+available_blocks=0;
+block_size=0;
+available_size_mb=0;
+current_size_mb=0;
+swap_file="";
+
+#----------------------------------------
+# start of the script
+#----------------------------------------
+
+# log file handling
+log_file=$log_file_path/$log_file_name;
+mkdir -p $log_file_path;
+if [ -e $log_file ] ; then rm $log_file; fi;
+
+echo "-------------------------------------" > $log_file;
+echo "-   Presented by Turbo Boost Team   -" >> $log_file;
+echo "-      (delta-roh & Harbir)         -" >> $log_file;
+echo "- swapfile on any partition $version_swap_cache -" >> $log_file;
+echo "- script idea from & developed by delta-roh-" >> $log_file;
+echo "- (copyright 2013)                  -" >> $log_file;
+echo "-------------------------------------" >> $log_file;
+
+echo ">partition info:" >> $log_file;
+echo " partition:\t"$partition >> $log_file;
+available_blocks=`stat -t -f $partition | awk '{ print $7 }'`;
+block_size=`stat -t -f $partition | awk '{ print $5 }'`;
+available_size_mb=$((($available_blocks*($block_size/1024))/1024));
+echo " free blocks:\t"$available_blocks" blocks" >> $log_file;
+echo " block size:\t"$block_size" Byte" >> $log_file;
+echo " free space:\t"$available_size_mb" MB" >> $log_file;
+
+# check if partition is allowed
+if [ $partition = "/cache" -o $partition = "/data" -o $partition = "/system" ] ;
+then
+    # partition is allowed - check mount state
+    # (this is quite tricky due to different
+    #  formats of the mount command)
+    echo ">partition $partition is allowed" >> $log_file;
+    echo ">check mount state (rw or ro)"  >> $log_file;
+    mount_state=`mount | busybox grep -e " $partition " | busybox grep -o -e "rw," -e "ro,"`;
+    if [ $mount_state = "ro," -o $mount_state = "rw," ] ;
+    then
+        if [ $mount_state = "ro," ] ;
+        then
+            echo " partition is read-only" >> $log_file;
+            echo " remount necessary - try ..." >> $log_file;
+            mount -o remount,rw $partition >> $log_file;
+            echo " checking remount ..." >> $log_file;
+            mount_state=`mount | busybox grep -e " $partition " | busybox grep -o -e "rw," -e "ro,"`;
+            if [ $mount_state = "rw," ] ;
+            then
+                echo " remount was successful!" >> $log_file;
+                echo " partition is read-write" >> $log_file;
+            else
+                echo "Error: remount failed!" >> $log_file;
+                
+                exit_flag=1;
+            fi;
+        else
+            echo " partition is read-write" >> $log_file;
+        fi;
+    else
+        echo "Error: cannot get" >> $log_file;
+        echo "\t\tstate of $partition!" >> $log_file;
+        
+        exit_flag=1;
+    fi;
+else
+    echo "Error: $partition not allowed!" >> $log_file;
+    echo "\tpartition has to be:" >> $log_file;
+    echo "\t/cache or /data or /system" >> $log_file;
+
+    exit_flag=1;
+fi;
+
+# prepare partition
+if [ $exit_flag -eq 0 ] ;
+then
+    echo " change access rights of $partition" >> $log_file;
+    chmod 775 $partition;
+    echo " create directory for swap file" >> $log_file;
+    mkdir -p $partition/$sub_dir;
+    chmod 775 $partition/$sub_dir;
+
+    # output of script parameters
+    echo ">other parameters:" >> $log_file;
+    echo " sub directory:\t"$sub_dir >> $log_file;
+    swap_file=$partition/$sub_dir/$swap_file_name;
+    echo " swap file:\t"$swap_file >> $log_file;
+    echo " log file:\t"$log_file >> $log_file;
+    echo " swap size:\t"$swap_file_size_mb" MB" >> $log_file;
+    echo " min. free:\t"$min_free_space_mb" MB" >> $log_file;
+    echo " min. swap:\t"$min_swap_size_mb" MB" >> $log_file;
+    echo " swappiness:\t"$swappiness >> $log_file;
+fi;
+
+# check actual swap file and delete if necessary
+delete_flag=0;
+if [ -e $swap_file -a $exit_flag -eq 0 ] ;
+then
+    current_size_mb=$(((`stat -t $swap_file | awk '{ print $2 }'`)/1024/1024));
+    echo " current swap:\t"$current_size_mb" MB" >> $log_file;
+    echo "---------swapfile exists-------------" >> $log_file;
+    echo ">check free memory limit" >> $log_file;
+    if [ $min_free_space_mb -gt $available_size_mb ] ;
+    then
+        echo " min. free memory too low" >> $log_file;
+        delete_flag=1;
+    else
+        echo " min. free memory ok" >> $log_file;
+        # free space is more or equal to the limit
+        
+        if [ $current_size_mb -gt $swap_file_size_mb ] ;
+        then
+            # swap file is greater than configured
+            echo " swap file requested smaller" >> $log_file;
+            delete_flag=1
+        fi;
+        
+        if [ $current_size_mb -lt $swap_file_size_mb ] ;
+        then
+            # swap file is smaller than configured - should be larger
+            echo " swap file requested larger" >> $log_file;
+            if [ $min_free_space_mb -lt $available_size_mb ] ;
+            then
+                # min. free space not reached yet - delete, resize
+                echo " min. free space not reached" >> $log_file;
+                echo " delete and resize swap" >> $log_file;
+                delete_flag=1;
+            else
+                echo " min. free space reached" >> $log_file;
+            fi;
+        fi;
+    fi;
+fi;
+
+# delete swap file if needed
+if [ $delete_flag -eq 1 -a $exit_flag -eq 0 ] ;
+then
+    echo ">delete current swap file" >> $log_file;
+    rm $swap_file >> $log_file;
+    if [ ! -e $swap_file ] ; then current_size_mb=0; fi;
+    echo " reinitialize free space:" >> $log_file;
+    available_blocks=`stat -t -f $partition | awk '{ print $7 }'`;
+    block_size=`stat -t -f $partition | awk '{ print $5 }'`;
+    available_size_mb=$((($available_blocks*($block_size/1024))/1024));
+    echo " free blocks:\t"$available_blocks" blocks" >> $log_file;
+    echo " block size:\t"$block_size" Byte" >> $log_file;
+    echo " free space:\t"$available_size_mb" MB" >> $log_file;
+    echo " current swap:\t"$current_size_mb" MB" >> $log_file;
+fi;
+
+# create new swap file if necessary
+if [ ! -e $swap_file -a $exit_flag -eq 0 ] ;
+then
+    echo "-------swapfile does not exist-------" >> $log_file;
+    echo ">check requested size of swapfile" >> $log_file;
+    if [ $swap_file_size_mb -le $(($available_size_mb-$min_free_space_mb)) ] ;
+    then
+        echo " requested size OK" >> $log_file;
+    else
+        echo " requested size too large" >> $log_file;
+        echo " autocorrect size" >> $log_file;
+        swap_file_size_mb=$(($available_size_mb-$min_free_space_mb));
+        echo " corrected size:\t"$swap_file_size_mb" MB" >> $log_file;
+    fi;
+    if [ $swap_file_size_mb -ge $min_swap_size_mb ] ;
+    then
+        echo " create swapfile" >> $log_file;
+        dd if=/dev/zero of=$swap_file bs=1048576 count=$swap_file_size_mb >> $log_file;
+    else
+        echo " swapfile lower than min." >> $log_file;
+    fi;
+else
+    echo " actual swapfile matches" >> $log_file;
+fi;
+
+# initialize swap file
+if [ -e $swap_file -a $exit_flag -eq 0 ] ;
+then
+    echo ">initialize swapfile" >> $log_file;
+    echo " create swapfile structure in file" >> $log_file;
+    # uid 0=root / gid 1000=system
+    chown 0.1000 $swap_file >> $log_file;
+    chmod 666 $swap_file >> $log_file;
+    mkswap $swap_file >> $log_file;
+
+    echo " activate swapfile" >> $log_file;
+    swapon $swap_file >> $log_file;
+
+    echo " set swappiness=($swappiness)" >> $log_file;
+#   chmod 666 /proc/sys/vm/swappiness >> $log_file;
+    echo $swappiness > /proc/sys/vm/swappiness;
+
+    echo "--write infos about swapfile to log--" >> $log_file;
+    echo ">result of cat /proc/swaps:" >> $log_file;
+    cat /proc/swaps >> $log_file;
+    echo "" >> $log_file;
+
+#   echo ">result of cat /proc/meminfo:" >> $log_file;
+#   cat /proc/meminfo >> $log_file;
+#   echo "" >> $log_file;
+
+    echo ">result of free:" >> $log_file;
+    free >> $log_file;
+
+    echo "Exit with success!" >> $log_file;
+    echo "---end of swap to cache partition----" >> $log_file;
+    echo "" >> $log_file;
+else
+    echo "ERROR: creation of swapfile failed! -" >> $log_file;
+
+    exit_flag=1;
+fi;
+
+# check for errors
+if [ $exit_flag -eq 0 ] ;
+then
+    # all actions succeeded
+    exit 0;
+else
+    # an error occured - write some infos
+    echo "--write some infos to log--" >> $log_file;
+    echo ">result of ls -l "$partition":" >> $log_file;
+    ls -l $partition >> $log_file;
+
+    echo ""  >> $log_file;
+    echo ">result of ls -l "$partition"/"$sub_dir":" >> $log_file;
+    ls -l $partition/$sub_dir  >> $log_file;
+
+    echo ">result of df:" >> $log_file;
+    df "/system" "/data" "/cache" >> $log_file;
+
+    echo ">result of du -c -k $partition:" >> $log_file;
+    du -c -k $partition >> $log_file;
+
+    echo "Exit with error!" >> $log_file;
+    echo "---end of swap to cache partition----" >> $log_file;
+    echo "" >> $log_file;
+    
+    exit 1;
+fi;
+
+#-------------------------------------------
+#   EOF
+#-------------------------------------------

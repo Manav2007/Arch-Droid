@@ -1,0 +1,37 @@
+#!/system/bin/sh
+#
+# Created by Ryan Andri | Rainforce279
+# Version 2.2 R-150623
+# (Disclaimer)
+# You can edit/post this script or share and used into others ROM under License GNU/GPL Android License
+# No Waranty about This script
+# Contact me @ www.facebook.com/ryan.omnia
+# NOTE : don't edit if u don't know what are u doing .!!
+# script will not running if variable path & values not match from original
+
+mount -o remount,rw /
+mount -o remount,rw rootfs
+mount -o remount,rw /system
+mount -o remount,rw /data
+
+# LOG
+LOGX=/data/atx-script/trim.log
+if [ -e $LOGX ];
+then
+	rm -f $LOGX
+fi
+
+if [ -e /system/bin/fstrim ] || [ -e /system/xbin/fstrim ];
+then
+	echo "================================================" | tee -a $LOGX
+	echo " FSTRIM Started at $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $LOGX
+	echo "================================================" | tee -a $LOGX
+	fstrim -v /system | tee -a $LOGX;
+	fstrim -v /data | tee -a $LOGX;
+	fstrim -v /cache | tee -a $LOGX;
+	echo "================================================" | tee -a $LOGX
+	echo " FSTRIM Finished at $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $LOGX
+	echo "================================================" | tee -a $LOGX
+else
+	echo "* FSTrim can't run without Busybox, Please install busybox!" | tee -a $LOGX
+fi

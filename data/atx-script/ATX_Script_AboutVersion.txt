@@ -1,0 +1,34 @@
+
+           =     =====   =  =  
+          ===      =      =
+         =   =     =     =  =
+        ----------------------
+        ----------------------
+            S  C  R  I  P  T
+        ----------------------
+        ----------------------
+  Created by Ryan Andri (rainforce279@xda)
+              |||||||||
+  Saturday 23th June 2015 @ 01:00 AM
+         Version 2.2 150623
+  ------------------------------------
+  CP & CREDITS
+  ------------------------------------
+  - FB      : facebook.com/ryanaepple
+  - Github  : github.com/ryan.omnia
+  - Twitter : ryanaepple
+  - Email   : ryan.omnia@gmail.com
+  ------------------------------------
+  ------------------------------------
+  >>CREDITS<<
+  - pikachu01 @ xda-developer.com
+  - zeppelinrox @ xda-developer.com
+  - Lenarox @ xda-developer.com
+  - ryuinferno @ xda-developer.com
+  - droidphile @ xda-developer.com
+  - darky @ xda-developer.com
+  ------------------------------------
+  ------------------------------------
+     Thanks for using this script
+  ------------------------------------
+  ------------------------------------

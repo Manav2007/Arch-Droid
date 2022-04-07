@@ -1,0 +1,2 @@
+# Run cron S04Fstrim.sh every 12 hours
+0 */12 * * * /system/etc/atx_shell/S02Fstrim.sh

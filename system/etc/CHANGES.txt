@@ -1,0 +1,538 @@
+===================================
+Since Mon Jan 19 02:03:20 UTC 2015
+===================================
+
+   * external/koush/Superuser
+b97c3f7 Automatic translation import
+
+   * bootable/recovery-cm
+42580a2 recovery: Allow 'mm' and friends to work
+b187050 Allow 0-byte files in full OTAs.
+0a9182e do verification and extraction on memory, not files
+b537787 remove dead code from minzip
+ea4efec create block map for all update packages on /data
+c52a724 open misc device in write-only mode
+2d3bdf6 clear BCB in misc partition before rebooting
+113a0b7 revert uncrypt back to dynamic linking, fix libs
+07819d9 change uncrypt to static linking
+895b4c5 only do uncryption on packages in /data
+64dc8c0 recovery: 64 bit build issues
+8d16104 Fix a crash when going into recovery mode.
+93d4974 program to store unencrypted files in an encrypted filesystem
+
+   * build
+04af492 build: add uncrypt to core_minimal product spec
+
+   * external/whispersystems/WhisperPush
+e31985c Automatic translation import
+
+   * frameworks/base
+c4fb8ec boot into recovery via the pre-recovery service
+110d60b ThemeService: crop Keyguard wallpaper to display size
+c1aa8d7 Automatic translation import
+
+   * packages/apps/Apollo
+6d090a0 Automatic translation import
+
+   * packages/apps/Bluetooth
+133e280 Automatic translation import
+
+   * packages/apps/Browser
+138b153 Automatic translation import
+
+   * packages/apps/CMAccount
+3deb7cc Automatic translation import
+
+   * packages/apps/CMFileManager
+240e1e7 Automatic translation import
+
+   * packages/apps/CMHome
+6925ff6 Automatic translation import
+
+   * packages/apps/CMUpdater
+4d64722 Automatic translation import
+
+   * packages/apps/Calendar
+63a0083 Automatic translation import
+
+   * packages/apps/Camera2
+a1c238a Automatic translation import
+
+   * packages/apps/CellBroadcastReceiver
+617e46a Automatic translation import
+
+   * packages/apps/Contacts
+931f4db Automatic translation import
+
+   * packages/apps/ContactsCommon
+e983541 Automatic translation import
+
+   * packages/apps/DeskClock
+0f95e74 Automatic translation import
+
+   * packages/apps/Dialer
+13d3586 Revert "Add reverse lookup provider "PagineBianche" (IT)."
+81e7b24 Automatic translation import
+
+   * packages/apps/Email
+d761557 Automatic translation import
+
+   * packages/apps/Exchange
+b953a29 Automatic translation import
+
+   * packages/apps/Gallery2
+c3a8445 Automatic translation import
+
+   * packages/apps/InCallUI
+bb38254 Automatic translation import
+
+   * packages/apps/Mms
+115731c Automatic translation import
+
+   * packages/apps/Nfc
+30dc2f3 Automatic translation import
+
+   * packages/apps/PackageInstaller
+7520df7 Automatic translation import
+
+   * packages/apps/Settings
+06c669e Automatic translation import
+
+   * packages/apps/SoundRecorder
+27e3e9b Automatic translation import
+
+   * packages/apps/Stk
+27e1130 Automatic translation import
+
+   * packages/apps/Tag
+09fda7e Automatic translation import
+
+   * packages/apps/ThemeChooser
+dcfaf6a Automatic translation import
+
+   * packages/apps/Trebuchet
+585ac09 Automatic translation import
+
+   * packages/apps/UnifiedEmail
+bd477ab Automatic translation import
+
+   * packages/apps/VideoEditor
+e37d9d9 Automatic translation import
+
+   * packages/apps/VoiceDialer
+29894af Automatic translation import
+
+   * packages/inputmethods/LatinIME
+e26d2b6 Added Luxembourgish (lb) keyboard and spellchecking dictionary
+1990313 Automatic translation import
+
+   * packages/providers/CalendarProvider
+b8b7a5b Automatic translation import
+
+   * packages/providers/ContactsProvider
+fe00fc2 Automatic translation import
+
+   * packages/providers/DownloadProvider
+7ab567f Automatic translation import
+
+   * packages/providers/MediaProvider
+35762e9 Automatic translation import
+
+   * packages/services/Telephony
+f2c04f8 Revert "Add reverse lookup provider "PagineBianche" (IT)."
+6c9bc7e Automatic translation import
+
+   * packages/wallpapers/MagicSmoke
+9fe2378 Automatic translation import
+
+   * system/core
+fee6f56 add the pre-recovery service
+
+   * vendor/cm
+bcc33b3 Added Luxembourgish (lb) keyboard and spellchecking dictionary
+440071c cm: add Galaxy S IV 3G I9500 contributors
+
+   * vendor/cyngn
+e1b7169 allow-permissions: Add android.permission.RECOVERY to updater apps
+
+===================================
+Since Sun Jan 11 21:42:01 UTC 2015
+===================================
+
+   * device/sony/nicki
+d1515e6 nicki: add mass storage mode
+
+   * frameworks/base
+000b142 profiles: clean up default profiles
+
+   * kernel/sony/msm8x27
+37c2579 msm: vidc: Allow small resolution devices to play 1080p videos
+
+   * packages/apps/Settings
+fb59194 Settings: Fix profiles Wi-Fi strings
+cf6a575 Settings: fix some mis-merges for new Profiles enhancements
+b32f9e5 Settings: select text when editing name
+627a120 Settings: add a way to fill a profile from the current device state
+91b0e9f Settings: add delete confirmation dialog for profiles
+03f5ff9 Settings: display Triggers inline with Profile actions
+c008280 Settings: make empty profile trigger screens more useful
+
+   * packages/apps/UnifiedEmail
+126676f Increase the maximum size for attachments.
+
+   * packages/inputmethods/LatinIME
+2eccea1 LatinIME: Enable Greek spell checking
+e4ccf11 LatinIME: Enable spellchecker for additional languages
+c0ea8d8 LatinIME: HU enable predictive dictionary and remove unused letters
+
+   * packages/services/Telephony
+a145d73 Telephony: Fix translatability
+
+   * vendor/cm
+4901fb6 Added missing translator name
+0c49709 Add myself to contributors on cm-11.0
+
+===================================
+Since Mon Jan  5 01:45:37 UTC 2015
+===================================
+
+   * external/koush/Superuser
+2cb837b Automatic translation import
+
+   * build
+560046c envsetup: Add /vendor/lib/hw to shared lib search path
+
+   * external/whispersystems/WhisperPush
+9f0ec34 Automatic translation import
+
+   * frameworks/base
+84fffbf Automatic translation import
+cd6993f SysUI: Use system theme when currentTheme is null
+
+   * hardware/qcom/fm
+7d5628a Automatic translation import
+
+   * kernel/sony/msm8x27
+122688f KEYS: close race between key lookup and freeing
+
+   * packages/apps/Apollo
+77321df Automatic translation import
+
+   * packages/apps/Bluetooth
+e8c83c3 Automatic translation import
+
+   * packages/apps/BluetoothExt
+8432218 Automatic translation import
+
+   * packages/apps/Browser
+db482c4 Automatic translation import
+
+   * packages/apps/CMAccount
+e3f6a77 Automatic translation import
+
+   * packages/apps/CMBugReport
+0ad8f0b Automatic translation import
+
+   * packages/apps/CMFileManager
+6951772 Automatic translation import
+
+   * packages/apps/CMHome
+2129d76 Read Extension icon files using openInputStream.
+47095eb Handle null bitmap for DashClock extension cards.
+
+   * packages/apps/CMUpdater
+96b237f Automatic translation import
+
+   * packages/apps/Calculator
+5c22c96 Automatic translation import
+
+   * packages/apps/Calendar
+61035c3 Automatic translation import
+
+   * packages/apps/Camera2
+418c884 Automatic translation import
+
+   * packages/apps/CellBroadcastReceiver
+f6b4fa9 Automatic translation import
+
+   * packages/apps/CertInstaller
+b534aca Automatic translation import
+
+   * packages/apps/Contacts
+7a01e4e Automatic translation import
+
+   * packages/apps/ContactsCommon
+2e87d5a Automatic translation import
+
+   * packages/apps/DSPManager
+8b4aa4a Automatic translation import
+
+   * packages/apps/DeskClock
+2f4b9fa Automatic translation import
+b8763bb Fix timezones in non-English languages
+e1d1532 Partially revert "WorldClock: Remove duplicate Kiev translation entries"
+
+   * packages/apps/Dialer
+a96fac1 Automatic translation import
+
+   * packages/apps/Email
+d3d3b14 Automatic translation import
+
+   * packages/apps/Exchange
+742d14c Automatic translation import
+
+   * packages/apps/Gallery2
+142df74 Automatic translation import
+
+   * packages/apps/InCallUI
+ffa718b Automatic translation import
+
+   * packages/apps/Mms
+d3472e6 Automatic translation import
+436ec3e Externally Reported Low Severity Security Vulnerability: SMS Resend Vulnerability in Android
+
+   * packages/apps/Nfc
+073ac5d Automatic translation import
+
+   * packages/apps/PackageInstaller
+9e34431 Automatic translation import
+
+   * packages/apps/Settings
+3506d4b Automatic translation import
+9be2bd4 Settings: Point to per-sim ringtone options if on Msim device.
+
+   * packages/apps/SoundRecorder
+dded0d4 Automatic translation import
+
+   * packages/apps/Stk
+642a0b6 Automatic translation import
+
+   * packages/apps/Tag
+584d15f Automatic translation import
+
+   * packages/apps/ThemeChooser
+8b56383 Automatic translation import
+
+   * packages/apps/Torch
+c313d48 Automatic translation import
+
+   * packages/apps/Trebuchet
+44badae Automatic translation import
+
+   * packages/apps/UnifiedEmail
+305814e Automatic translation import
+
+   * packages/apps/VideoEditor
+77f23e2 Automatic translation import
+
+   * packages/apps/VoiceDialer
+b20c8df Automatic translation import
+
+   * packages/inputmethods/LatinIME
+5157d08 Automatic translation import
+
+   * packages/providers/CalendarProvider
+a6a311c Automatic translation import
+
+   * packages/providers/ContactsProvider
+942658c Automatic translation import
+
+   * packages/providers/DownloadProvider
+5193d03 Automatic translation import
+
+   * packages/providers/MediaProvider
+7e7b8e6 Automatic translation import
+
+   * packages/services/Telephony
+81ff2ef Automatic translation import
+
+   * packages/wallpapers/Basic
+263fead Automatic translation import
+
+   * packages/wallpapers/LivePicker
+947c349 Automatic translation import
+
+   * packages/wallpapers/MagicSmoke
+977b5ea Automatic translation import
+
+   * packages/wallpapers/PhotoPhase
+dc5e5d9 Automatic translation import
+
+   * vendor/cm
+a30d6c9 Revert "Added telenor 'smart' ipv4v6 apn"
+0b83e32 Add Japanese APNs (DMM mobile, UQ mobile)
+d87e40d CM Legal - use https
+
+===================================
+Since Sat Jan  3 17:39:58 UTC 2015
+===================================
+
+   * external/koush/Superuser
+392c152 Automatic translation import
+
+   * external/whispersystems/WhisperPush
+9a66aab Automatic translation import
+
+   * frameworks/base
+f2f70e6 Automatic translation import
+
+   * frameworks/opt/telephony
+c28cc87 RIL: Allow RILReceiver to be overriden
+
+   * hardware/qcom/fm
+81af79c Automatic translation import
+
+   * packages/apps/Apollo
+c9ce463 Automatic translation import
+
+   * packages/apps/Bluetooth
+1ed50c9 Automatic translation import
+
+   * packages/apps/BluetoothExt
+892dcb9 Automatic translation import
+
+   * packages/apps/Browser
+a4fac56 Automatic translation import
+
+   * packages/apps/CMAccount
+9a196c4 Automatic translation import
+
+   * packages/apps/CMBugReport
+8b59b3d Automatic translation import
+
+   * packages/apps/CMFileManager
+4f63293 CMFM: NL translations
+19a1097 Automatic translation import
+
+   * packages/apps/CMHome
+96f4678 Automatic translation import
+
+   * packages/apps/CMUpdater
+44433db Automatic translation import
+
+   * packages/apps/CMWallpapers
+2e2d92f Automatic translation import
+
+   * packages/apps/Calculator
+a8c5262 Automatic translation import
+
+   * packages/apps/Calendar
+169d540 Fix a string for crowdin
+499349f Automatic translation import
+
+   * packages/apps/Camera2
+cc558ec Automatic translation import
+
+   * packages/apps/CellBroadcastReceiver
+48c5526 Automatic translation import
+
+   * packages/apps/CertInstaller
+57b448e Automatic translation import
+
+   * packages/apps/Contacts
+4dc33cf Automatic translation import
+
+   * packages/apps/ContactsCommon
+af9d54a Automatic translation import
+
+   * packages/apps/DSPManager
+5975435 Automatic translation import
+
+   * packages/apps/DeskClock
+1ce5b2c Automatic translation import
+
+   * packages/apps/Dialer
+795df40 Automatic translation import
+
+   * packages/apps/Email
+ebbe600 Automatic translation import
+
+   * packages/apps/Gallery2
+290db1f Automatic translation import
+
+   * packages/apps/InCallUI
+a6deaa2 Automatic translation import
+
+   * packages/apps/KeyChain
+900e9c6 Automatic translation import
+
+   * packages/apps/LockClock
+50967e2 Automatic translation import
+
+   * packages/apps/Mms
+85b869a Automatic translation import
+
+   * packages/apps/Nfc
+8782f69 Automatic translation import
+
+   * packages/apps/Settings
+4e48d3f Automatic translation import
+
+   * packages/apps/SoundRecorder
+07b913a Automatic translation import
+
+   * packages/apps/Stk
+0274c39 Automatic translation import
+
+   * packages/apps/ThemeChooser
+297fa3d Automatic translation import
+
+   * packages/apps/Torch
+df6461a Automatic translation import
+
+   * packages/apps/Trebuchet
+866350d Automatic translation import
+
+   * packages/apps/UnifiedEmail
+b77cd7d Automatic translation import
+
+   * packages/apps/VideoEditor
+ff89709 Automatic translation import
+
+   * packages/apps/VoicePlus
+943a073 Automatic translation import
+
+   * packages/inputmethods/LatinIME
+bf56153 Automatic translation import
+
+   * packages/providers/CalendarProvider
+39634b6 Automatic translation import
+
+   * packages/providers/ContactsProvider
+f605e34 Automatic translation import
+
+   * packages/providers/DownloadProvider
+e7a8218 Automatic translation import
+
+   * packages/providers/ThemesProvider
+7ccb630 Automatic translation import
+
+   * packages/providers/UserDictionaryProvider
+57e9407 Automatic translation import
+
+   * packages/services/Telephony
+f39a035 Automatic translation import
+
+   * packages/wallpapers/Galaxy4
+4ca595c Automatic translation import
+
+   * packages/wallpapers/PhaseBeam
+a0b70d8 Automatic translation import
+
+   * packages/wallpapers/PhotoPhase
+6565694 Automatic translation import
+
+   * vendor/cm
+c3fbc9d Add Google Android One contributor
+5c5a2e8 Allow vendor/cyngn overlays to override vendor/cm overlays
+
+===================================
+Since Thu Jan  1 06:25:39 UTC 2015
+===================================
+
+   * device/sony/nicki
+d7c334b build: Avoid poisoning the host binaries with bad ABIs
+
+   * frameworks/base
+b793cb4 frameworks: disable loading notification groups in System profiles
+
