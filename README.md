@@ -65,7 +65,7 @@ If you are an Advanced user and you have used Arch Linux, then you are good to g
 run the command below:
 
 ```
-mkdir Arch-Droid/Sources/3.4 && cd Arch-Droid/Sources/3.4
+mkdir Arch-Droid/Sources/Glee/3.4 && cd Arch-Droid/Sources/Glee/3.4
 git clone https://github.com/Manav2007/Arch-Droid.git
 ```
 #### Credits
