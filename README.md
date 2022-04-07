@@ -59,6 +59,15 @@ If you are an Advanced user and you have used Arch Linux, then you are good to g
 |   Device Name   | Device Code Name |  Device Model   |
 | --------------- | ---------------  | --------------- |
 |    Lumia 525    |      Glee        |     RM-998      |
+
+### How to Download Source Codes?
+
+run the command below:
+
+```
+mkdir Arch-Droid/Sources/3.4 && cd Arch-Droid/Sources/3.4
+git clone https://github.com/Manav2007/Arch-Droid.git
+```
 #### Credits
 
 - Manav Harsana (Me)
