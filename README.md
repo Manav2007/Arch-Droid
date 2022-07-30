@@ -1,6 +1,5 @@
-#Project Shelved
-The project is no longer maintained, as my device is dead. feel free to continue this project.
-
+# Project Shelved
+This project is discontinued and no longer maintained as my device is dead. Feel free to continue this
 
 # Arch-Droid
 An Open Source Android based OS based on the DIY principle just like Arch Linux
